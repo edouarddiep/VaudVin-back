@@ -11,6 +11,6 @@ class WineController extends Controller{
     }
     
     public function getWineById($id){
-        return \DB::select('SELECT * FROM app_wines WHERE id = '.$id); // requête permettant de récupérer tous les vins
+        return \DB::select('SELECT * FROM app_wines WHERE id = '.$id); // requête permettant de récupérer un vin par son id
     }
 }

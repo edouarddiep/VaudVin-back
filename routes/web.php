@@ -36,6 +36,14 @@ Route::get('wines/{id}', 'WineController@getWineById');
 Route::get('/restaurants', 'RestaurantController@getRestaurants');
 Route::get('/restaurants/{id}', 'RestaurantController@getRestaurantById');
 
+Route::bind('/wine', function ($search) {
+    return App\Wine::where('name', 'LIKE', '%'.$search.'%')->get();
+});
+
 Route::get('/maman', function () {
     return "<h1>Hello mère !</h1>";
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
