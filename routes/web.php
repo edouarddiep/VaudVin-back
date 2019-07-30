@@ -33,11 +33,27 @@ Route::get('/tests', function () {
 
 Route::get('/wines', 'WineController@getWines');
 Route::get('wines/{id}', 'WineController@getWineById');
+Route::get('wines/{id}/rates', 'RateController@getRatesByWine');
 Route::get('/restaurants', 'RestaurantController@getRestaurants');
 Route::get('/restaurants/{id}', 'RestaurantController@getRestaurantById');
+Route::get('/rates', 'RateController@getRates');
+Route::get('/vintages/{id}/rates', 'RateController@getRatesByVintage');
+Route::get('/vintages', 'VintageController@getVintages');
+Route::get('/wines/{id}/vintages', 'VintageController@getWineVintages');
+Route::get('/user', 'UserController@getAuthenticatedUser');
+Route::get('/user/{id}', 'UserController@getUserById');
+Route::get('/user/{id}/rates', 'RateController@getUserRates');
+Route::get('/user/{user_id}/vintages/{vint_id}', 'RateController@getUserRatesByVintages');
+Route::get('/user/{user_id}/wines/{wine_id}', 'RateController@getUserRatesByWines');
+Route::get('/user_id', 'UserController@getAuthenticatedUserId');
+
+Route::post('rates', 'RateController@postRate');
+
+Route::put('rates/{id}', 'RateController@updateRate');
+
 
 Route::bind('/wine', function ($search) {
-    return App\Wine::where('name', 'LIKE', '%'.$search.'%')->get();
+    return App\Models\Wine::where('name', 'LIKE', '%'.$search.'%')->get();
 });
 
 Route::get('/maman', function () {

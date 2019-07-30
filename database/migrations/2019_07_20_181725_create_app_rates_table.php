@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAppNotesTable extends Migration
+class CreateAppRatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateAppNotesTable extends Migration
      */
     public function up()
     {
-        Schema::create('app_notes', function (Blueprint $table) {
+        Schema::create('app_rates', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('value');
+            $table->integer('value'); // notes de 1 à 5
 
-            // Foreign Keys - Wines
-            $table->integer('wine_id')->unsigned();
-            $table->foreign('wine_id')->references('id')->on('app_wines');
+            // Foreign Keys - Vintages
+            $table->integer('vint_id')->unsigned();
+            $table->foreign('vint_id')->references('id')->on('app_vintages');
             
             // Foreign Keys - Users
             $table->integer('user_id')->unsigned();
@@ -37,6 +37,6 @@ class CreateAppNotesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_notes');
+        Schema::dropIfExists('app_rates');
     }
 }

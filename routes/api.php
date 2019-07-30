@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 
 Route::post('register', 'UserController@register');
 Route::post('login', 'UserController@login');
+Route::post('sendPasswordResetLink', 'Auth\ResetPasswordController@sendEmail');
 Route::get('profile', 'UserController@getAuthenticatedUser');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
@@ -22,7 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('users/{id}', function ($id) {
-    $users = App\User::get($id);
+    $users = App\Models\User::get($id);
 
     return view('users.index');
 });
