@@ -67,4 +67,8 @@ class UserController extends Controller{
     public function getUserById($id){
         return \DB::select('SELECT * FROM users WHERE id = '.$id); // requête permettant de récupérer le user avec son id
     }
+
+    public function getAllUsers(){
+        return \DB::select('SELECT * FROM users'); // requête permettant de récupérer tous les users de l'application
+    }
 }

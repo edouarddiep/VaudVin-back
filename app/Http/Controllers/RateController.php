@@ -28,7 +28,7 @@ class RateController extends Controller{
     }
 
     public function getRatesByWine($id){
-        return \DB::select('SELECT wine_id, value, year FROM app_rates JOIN app_vintages ON app_rates.vint_id = app_vintages.id JOIN app_wines on app_vintages.wine_id = app_wines.id WHERE wine_id = '.$id.' ORDER BY year DESC'); // requête permettant de récupérer les notes pour tous les millésimes d'un vin
+        return \DB::select('SELECT wine_id, value, vint_id, year, user_id FROM app_rates JOIN app_vintages ON app_rates.vint_id = app_vintages.id JOIN app_wines on app_vintages.wine_id = app_wines.id WHERE wine_id = '.$id.' ORDER BY year DESC'); // requête permettant de récupérer les notes pour tous les millésimes d'un vin
     }
 
     public function postRate(Request $request){

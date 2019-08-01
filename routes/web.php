@@ -41,10 +41,11 @@ Route::get('/vintages/{id}/rates', 'RateController@getRatesByVintage');
 Route::get('/vintages', 'VintageController@getVintages');
 Route::get('/wines/{id}/vintages', 'VintageController@getWineVintages');
 Route::get('/user', 'UserController@getAuthenticatedUser');
-Route::get('/user/{id}', 'UserController@getUserById');
-Route::get('/user/{id}/rates', 'RateController@getUserRates');
-Route::get('/user/{user_id}/vintages/{vint_id}', 'RateController@getUserRatesByVintages');
-Route::get('/user/{user_id}/wines/{wine_id}', 'RateController@getUserRatesByWines');
+Route::get('/users', 'UserController@getAllUsers');
+Route::get('/users/{id}', 'UserController@getUserById');
+Route::get('/users/{id}/rates', 'RateController@getUserRates');
+Route::get('/users/{user_id}/vintages/{vint_id}', 'RateController@getUserRatesByVintages');
+Route::get('/users/{user_id}/wines/{wine_id}', 'RateController@getUserRatesByWines');
 Route::get('/user_id', 'UserController@getAuthenticatedUserId');
 
 Route::post('rates', 'RateController@postRate');
