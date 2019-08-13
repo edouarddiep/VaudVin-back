@@ -14,12 +14,12 @@ class CreateAppVintagesTable extends Migration
     public function up()
     {
         Schema::create('app_vintages', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('year'); // année du millésime
+            $table->increments('vin_id');
+            $table->integer('vin_year'); // année du millésime
 
             // Foreign Keys - Wines
-            $table->integer('wine_id')->unsigned();
-            $table->foreign('wine_id')->references('id')->on('app_wines');
+            $table->integer('fk_vin_win_id')->unsigned();
+            $table->foreign('fk_vin_win_id')->references('win_id')->on('app_wines');
             
             // Timestamps of creation & updates
             $table->timestamps();

@@ -6,17 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Restaurant extends Model
 {
-    protected $guarded = ['id'];
+    protected $guarded = ['res_id'];
+
+    protected $primaryKey = 'res_id';
 
     protected $fillable = [
-        'name',
-        'type',
-        'address_1',
-        'address_2',
-        'address_3',
-        'zip_code',
-        'city',
-        'country',
-        'phone_number',
+        'res_name',
+        'res_type',
+        'res_address_1',
+        'res_address_2',
+        'res_address_3',
+        'res_zip_code',
+        'res_city',
+        'res_country',
+        'res_phone_number',
     ];
 }

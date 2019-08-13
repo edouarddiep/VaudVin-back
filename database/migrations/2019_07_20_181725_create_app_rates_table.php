@@ -14,16 +14,17 @@ class CreateAppRatesTable extends Migration
     public function up()
     {
         Schema::create('app_rates', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('value'); // notes de 1 à 5
+            $table->increments('rat_id');
+            $table->integer('rat_value'); // notes de 1 à 5
+            $table->string('rat_comment', 100)->nullable(); // commentaire facultatif (max. 100 caractères)
 
             // Foreign Keys - Vintages
-            $table->integer('vint_id')->unsigned();
-            $table->foreign('vint_id')->references('id')->on('app_vintages');
+            $table->integer('fk_rat_vin_id')->unsigned();
+            $table->foreign('fk_rat_vin_id')->references('vin_id')->on('app_vintages');
             
             // Foreign Keys - Users
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('fk_rat_user_id')->unsigned();
+            $table->foreign('fk_rat_user_id')->references('id')->on('users');
 
             // Timestamps of creation & updates
             $table->timestamps();

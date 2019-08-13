@@ -14,14 +14,14 @@ class CreateAppWineCardsTable extends Migration
     public function up()
     {
         Schema::create('app_wine_cards', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('win_car_id');
             
             // Foreign Keys - Restaurants
-            $table->integer('res_id')->unsigned();
-            $table->foreign('res_id')->references('id')->on('app_restaurants');
+            $table->integer('fk_win_car_res_id')->unsigned();
+            $table->foreign('fk_win_car_res_id')->references('res_id')->on('app_restaurants');
             // Foreign Keys - Wines
-            $table->integer('wine_id')->unsigned();
-            $table->foreign('wine_id')->references('id')->on('app_wines');
+            $table->integer('fk_win_car_win_id')->unsigned();
+            $table->foreign('fk_win_car_win_id')->references('win_id')->on('app_wines');
 
             // Timestamps of creation & updates
             $table->timestamps();

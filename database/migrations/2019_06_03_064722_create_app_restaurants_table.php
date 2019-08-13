@@ -14,16 +14,16 @@ class CreateAppRestaurantsTable extends Migration
     public function up()
     {
         Schema::create('app_restaurants', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name', 191);
-            $table->string('type', 191);
-            $table->string('address_1', 191);
-            $table->string('address_2', 191)->nullable();
-            $table->string('address_3', 191)->nullable();
-            $table->string('zip_code', 191);
-            $table->string('city', 191);
-            $table->string('country', 191);
-            $table->string('phone_number', 191);
+            $table->increments('res_id');
+            $table->string('res_name', 191);
+            $table->string('res_type', 191);
+            $table->string('res_address_1', 191);
+            $table->string('res_address_2', 191)->nullable();
+            $table->string('res_address_3', 191)->nullable();
+            $table->string('res_zip_code', 191);
+            $table->string('res_city', 191);
+            $table->string('res_country', 191);
+            $table->string('res_phone_number', 191);
 
             // Timestamps of creation & updates
             $table->timestamps();
