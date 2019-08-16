@@ -30,9 +30,7 @@ Route::get('users/{id}', function ($id) {
 Route::group([    
     'namespace' => 'Auth',    
     'middleware' => 'api',    
-    'prefix' => 'password'
 ], function () {    
-    Route::post('create', 'ResetPasswordController@create');
-    Route::get('find/{token}', 'ResetPasswordController@find');
-    Route::post('reset', 'ResetPasswordController@reset');
+    Route::post('sendPasswordResetLink', 'ResetPasswordController@sendEmail');
+    Route::post('resetPassword', 'ChangePasswordController@process');
 });
