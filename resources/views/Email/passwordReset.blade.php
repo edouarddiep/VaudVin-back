@@ -1,14 +1,19 @@
 @component('mail::message')
 # Demande de réinitialisation
 
-Vous avez reçu cet e-mail car vous souhaitez réinitialiser le mot de passe de votre compte VaudVin.
-Cliquez sur le bouton ci-dessous pour procéder au changement de mot de passe.
+Bonjour,
+
+Pour réinitialiser votre mot de passe VaudVin, veuillez cliquer sur le lien ci-dessous. 
+Si vous n''avez pas demandé de nouveau mot de passe, veuillez ignorer cet e-mail. 
 
 @component('mail::button', ['url' => 'http://localhost:8100/reset-password-form?
 token='.$token])
-Réinitialiser votre mot de passe
+Réinitialiser le mot de passe
 @endcomponent
 
 Merci,<br>
 Le développeur de VaudVin.
+
+Ce message a été envoyé automatiquement. Veuillez ne pas répondre à cette adresse.
+
 @endcomponent
