@@ -8,11 +8,8 @@ class Rate extends Model
 {
 
     protected $table = 'app_rates';
-
     protected $guarded = ['rat_id'];
-
     protected $primaryKey = 'rat_id';
-
     protected $fillable = [
         'rat_value',
         'rat_comment',

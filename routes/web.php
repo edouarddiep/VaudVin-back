@@ -15,22 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tests', function () {
-
-    $isWeekend = date('N') >= 6;
-
-    $infos = [
-        'Edouard',
-        'Diep',
-        'Rue des Barques 4',
-        '1207 Genève',
-        'Suisse'
-    ];
-
-    return view('TEST.events', compact('infos', 'isWeekend'));
-
-});
-
 /** ROUTES GET */
 Route::get('/wines', 'WineController@getWines');
 Route::get('/wines/{win_id}', 'WineController@getWineById');
