@@ -15,7 +15,7 @@ class CreateAppConcoursRatesTable extends Migration
     {
         Schema::create('app_concours_rates', function (Blueprint $table) {
             $table->increments('con_rat_id');
-            $table->integer('con_rat_value'); // notes de 1 à 5
+            $table->integer('con_rat_value'); // points concours allant de 0 à 100
 
             // Foreign Keys - Vintages
             $table->integer('fk_con_rat_vin_id')->unsigned();

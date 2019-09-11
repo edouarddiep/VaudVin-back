@@ -21,6 +21,7 @@ Route::get('/wines/{win_id}', 'WineController@getWineById');
 Route::get('/wines/{win_id}/rates', 'RateController@getRatesByWine');
 Route::get('/wines/{win_id}/vintages', 'VintageController@getWineVintages');
 Route::get('/wines/{win_id}/concoursrates', 'ConcoursRateController@getConcoursRatesByWine');
+Route::get('/wines/{win_id}/concoursrates/nb', 'ConcoursRateController@getNumberConcoursRateByWine');
 Route::get('/wines/{win_id}/concoursrates/avg', 'ConcoursRateController@getAverageConcoursRateByWine');
 Route::get('/restaurants', 'RestaurantController@getRestaurants');
 Route::get('/restaurants/{res_id}', 'RestaurantController@getRestaurantById');

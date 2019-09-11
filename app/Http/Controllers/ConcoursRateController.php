@@ -22,13 +22,22 @@ class ConcoursRateController extends Controller{
         ->get();
     }
 
-    // requête permettant de récupérer la note liée au millésime
+    // requête permettant de récupérer la note moyenne des concours liée au millésime
     public function getAverageConcoursRateByWine($id){
         return \DB::table('app_concours_rates')
         ->join('app_vintages', 'app_concours_rates.fk_con_rat_vin_id', '=', 'app_vintages.vin_id')
         ->join('app_wines', 'app_vintages.fk_vin_win_id', '=', 'app_wines.win_id')
         ->where('win_id', $id)
         ->avg('con_rat_value');
+    }
+
+    // requête permettant de récupérer le nombre de notes des concours liée au millésime
+    public function getNumberConcoursRateByWine($id){
+        return \DB::table('app_concours_rates')
+        ->join('app_vintages', 'app_concours_rates.fk_con_rat_vin_id', '=', 'app_vintages.vin_id')
+        ->join('app_wines', 'app_vintages.fk_vin_win_id', '=', 'app_wines.win_id')
+        ->where('win_id', $id)
+        ->count('con_rat_id');
     }
 
 }
